@@ -2,6 +2,11 @@ import re
 import pandas as pd
 from pathlib import Path
 from difflib import SequenceMatcher
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 def get_nickname_dict():
     return {
@@ -51,6 +56,8 @@ def match_names(bio_names, names_list, nickname_dict):
                     if alt_name in bio_parts:
                         matches[name] = bio_name
                         break
+    
+    logger.info(f"Matched {len(matches)} names from {len(names_list)} total names")
     return matches
 
 def extract_bio_info(bio_content, bio_name):
@@ -90,6 +97,7 @@ def extract_bio_info(bio_content, bio_name):
     return political_content, private_content
 
 def extract_names_from_file(file_path):
+    logger.info(f"Extracting names from {file_path}")
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
     
@@ -100,7 +108,10 @@ def extract_names_from_file(file_path):
     
     pattern = r'\b(?:HON[.,:]*\s+)?([A-Z][A-Z\s\.-]+?)(?=\s+(?:Minister|Premier|Deputy|\n))'
     matches = re.findall(pattern, content)
-    return [' '.join(match.strip().split()).rstrip('.') for match in matches if match.strip()]
+    names = [' '.join(match.strip().split()).rstrip('.') for match in matches if match.strip()]
+    
+    logger.info(f"Extracted {len(names)} names from {file_path.name}")
+    return names
 
 def process_names_files():
     txt_data_dir = Path('txt_data')
@@ -108,7 +119,14 @@ def process_names_files():
     result_dir.mkdir(exist_ok=True)
     nickname_dict = get_nickname_dict()
     
-    for names_file in txt_data_dir.glob('*Names.txt'):
+    logger.info(f"Starting processing. Looking for *Names.txt files in {txt_data_dir}")
+    
+    names_files = list(txt_data_dir.glob('*Names.txt'))
+    logger.info(f"Found {len(names_files)} Names.txt files to process")
+    
+    for names_file in names_files:
+        logger.info(f"Processing {names_file.name}")
+        
         filename_parts = names_file.stem.split('_')
         if len(filename_parts) >= 3 and filename_parts[-1] == 'Names':
             year = filename_parts[0]
@@ -119,6 +137,7 @@ def process_names_files():
             
             names = extract_names_from_file(names_file)
             if not names:
+                logger.warning(f"No names found in {names_file.name}, skipping")
                 continue
                 
             # Initialize with empty positions
@@ -127,6 +146,7 @@ def process_names_files():
             
             # Process bio file if it exists
             if bio_path.exists():
+                logger.info(f"Processing bio file: {bio_filename}")
                 with open(bio_path, 'r', encoding='utf-8') as bio_file:
                     bio_content = bio_file.read()
                 
@@ -139,18 +159,29 @@ def process_names_files():
                 name_matches = match_names(bio_names, names, nickname_dict)
                 
                 # Extract career info for matched names
+                processed_count = 0
                 for i, name in enumerate(names):
                     if name in name_matches:
                         political, private = extract_bio_info(bio_content, name_matches[name])
                         political_positions[i] = political
                         private_positions[i] = private
+                        processed_count += 1
+                
+                logger.info(f"Extracted career info for {processed_count} matched names")
+            else:
+                logger.warning(f"Bio file {bio_filename} not found, creating CSV with names only")
             
             df = pd.DataFrame({
                 'Name': names,
                 'Political Career': political_positions,
                 'Private Career': private_positions
             })
-            df.to_csv(result_dir / csv_filename, index=False)
+            
+            output_path = result_dir / csv_filename
+            df.to_csv(output_path, index=False)
+            logger.info(f"Created {csv_filename} with {len(names)} entries")
+    
+    logger.info("Processing completed")
 
 if __name__ == "__main__":
     process_names_files()
