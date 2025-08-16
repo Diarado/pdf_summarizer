@@ -1,0 +1,78 @@
+2025-08-15 19:24:28,379 - ERROR - Failed to initialize PaddleOCR: Unknown argument: use_gpu
+2025-08-15 19:25:44,412 - ERROR - Failed to initialize PaddleOCR: Unknown argument: show_log
+2025-08-15 19:27:40,791 - ERROR - Failed to initialize PaddleOCR: Unknown argument: use_gpu
+2025-08-15 19:28:42,088 - INFO - Attempting PaddleOCR initialization (attempt 1/4)...
+2025-08-15 19:28:46,590 - INFO - Attempting PaddleOCR initialization (attempt 2/4)...
+2025-08-15 19:28:46,737 - INFO - Attempting PaddleOCR initialization (attempt 3/4)...
+2025-08-15 19:28:46,880 - INFO - Attempting PaddleOCR initialization (attempt 4/4)...
+2025-08-15 19:28:47,023 - ERROR - Failed to initialize PaddleOCR after all attempts
+2025-08-15 19:28:47,024 - ERROR - Please check your PaddleOCR installation:
+2025-08-15 19:28:47,025 - ERROR -   pip uninstall paddleocr paddlepaddle
+2025-08-15 19:28:47,026 - ERROR -   pip install paddlepaddle paddleocr
+2025-08-15 19:34:30,250 - INFO - Initializing EasyOCR with languages: ['en']
+2025-08-15 19:34:30,257 - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2025-08-15 19:34:30,263 - WARNING - Downloading detection model, please wait. This may take several minutes depending upon your network connection.
+2025-08-15 19:34:33,266 - INFO - Download complete
+2025-08-15 19:34:33,267 - WARNING - Downloading recognition model, please wait. This may take several minutes depending upon your network connection.
+2025-08-15 19:34:34,305 - INFO - Download complete.
+2025-08-15 19:34:39,113 - INFO - EasyOCR initialized successfully
+2025-08-15 19:34:40,166 - INFO - EasyOCR test completed successfully
+2025-08-15 19:34:40,174 - INFO - Found 1 PDF files to process
+2025-08-15 19:34:40,175 - INFO - Settings: preprocess=True, dpi_scale=2.0
+2025-08-15 19:34:40,175 - INFO - 
+[1/1] Processing 2015_Manitoba_Bio.pdf
+2025-08-15 19:34:40,175 - INFO - ------------------------------------------------------------
+2025-08-15 19:34:40,176 - INFO - Processing: 2015_Manitoba_Bio.pdf
+2025-08-15 19:34:47,780 - INFO - Converted 11 pages from 2015_Manitoba_Bio.pdf
+2025-08-15 19:34:47,783 - INFO - Performing OCR on page 1/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:35:12,031 - INFO - Performing OCR on page 2/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:35:37,777 - INFO - Performing OCR on page 3/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:36:03,744 - INFO - Performing OCR on page 4/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:36:28,335 - INFO - Performing OCR on page 5/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:36:53,553 - INFO - Performing OCR on page 6/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:37:18,644 - INFO - Performing OCR on page 7/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:37:43,993 - INFO - Performing OCR on page 8/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:38:09,260 - INFO - Performing OCR on page 9/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:38:35,052 - INFO - Performing OCR on page 10/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:38:59,520 - INFO - Performing OCR on page 11/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:39:13,081 - INFO - ✓ Saved OCR result to: txt_data/2015_Manitoba_Bio.txt
+2025-08-15 19:39:13,081 - INFO -   - Extracted text from 11/11 pages
+2025-08-15 19:39:13,082 - INFO - ------------------------------------------------------------
+2025-08-15 19:39:13,083 - INFO - 
+============================================================
+2025-08-15 19:39:13,083 - INFO - PROCESSING COMPLETE!
+2025-08-15 19:39:13,083 - INFO - ✓ Successful: 1
+2025-08-15 19:39:13,084 - INFO - ✗ Failed: 0
+2025-08-15 19:39:13,085 - INFO - Output directory: /mnt/d/Jiayi/pdf_summarizer/txt_data
+2025-08-15 19:39:13,085 - INFO - ============================================================
+2025-08-15 19:39:52,874 - INFO - Initializing EasyOCR with languages: ['en']
+2025-08-15 19:39:58,687 - INFO - EasyOCR initialized successfully
+2025-08-15 19:39:59,538 - INFO - EasyOCR test completed successfully
+2025-08-15 19:39:59,544 - INFO - Found 1 PDF files to process
+2025-08-15 19:39:59,544 - INFO - Settings: preprocess=True, dpi_scale=2.0
+2025-08-15 19:39:59,545 - INFO - 
+[1/1] Processing 2015_Manitoba_Bio.pdf
+2025-08-15 19:39:59,545 - INFO - ------------------------------------------------------------
+2025-08-15 19:39:59,546 - INFO - Processing: 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:06,813 - INFO - Converted 11 pages from 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:06,813 - INFO - Performing OCR on page 1/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:16,383 - INFO - Performing OCR on page 2/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:25,749 - INFO - Performing OCR on page 3/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:35,600 - INFO - Performing OCR on page 4/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:44,739 - INFO - Performing OCR on page 5/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:40:54,754 - INFO - Performing OCR on page 6/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:41:04,434 - INFO - Performing OCR on page 7/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:41:13,917 - INFO - Performing OCR on page 8/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:41:23,662 - INFO - Performing OCR on page 9/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:41:33,447 - INFO - Performing OCR on page 10/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:41:41,642 - INFO - Performing OCR on page 11/11 of 2015_Manitoba_Bio.pdf
+2025-08-15 19:41:43,315 - INFO - ✓ Saved OCR result to: txt_data/2015_Manitoba_Bio.txt
+2025-08-15 19:41:43,316 - INFO -   - Extracted text from 11/11 pages
+2025-08-15 19:41:43,317 - INFO - ------------------------------------------------------------
+2025-08-15 19:41:43,317 - INFO - 
+============================================================
+2025-08-15 19:41:43,318 - INFO - PROCESSING COMPLETE!
+2025-08-15 19:41:43,318 - INFO - ✓ Successful: 1
+2025-08-15 19:41:43,319 - INFO - ✗ Failed: 0
+2025-08-15 19:41:43,319 - INFO - Output directory: /mnt/d/Jiayi/pdf_summarizer/txt_data
+2025-08-15 19:41:43,320 - INFO - ============================================================
