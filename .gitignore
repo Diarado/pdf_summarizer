@@ -2,4 +2,7 @@ __pycache__/
 *.pyc
 venv/
 .env
+pdf_data/
+result/
+txt_data/
 ocr_processing.log
