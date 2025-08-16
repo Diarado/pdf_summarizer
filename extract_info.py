@@ -4,9 +4,14 @@ from pathlib import Path
 from difflib import SequenceMatcher
 import logging
 
+from utils.gemini_service import get_gemini_response
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# If true, ai will be called to clean up the extracted text
+ENABLE_CLEAN = True
 
 def get_nickname_dict():
     return {
@@ -119,6 +124,12 @@ def process_names_files():
     result_dir.mkdir(exist_ok=True)
     nickname_dict = get_nickname_dict()
     
+    clean_prompt_template_path = Path("prompts/clean_response.txt")
+    if not clean_prompt_template_path.exists():
+        logger.error(f"Prompt template not found at {clean_prompt_template_path}. Please create it.")
+        return
+    clean_prompt_base = clean_prompt_template_path.read_text()
+    
     logger.info(f"Starting processing. Looking for *Names.txt files in {txt_data_dir}")
     
     names_files = list(txt_data_dir.glob('*Names.txt'))
@@ -163,6 +174,18 @@ def process_names_files():
                 for i, name in enumerate(names):
                     if name in name_matches:
                         political, private = extract_bio_info(bio_content, name_matches[name])
+                        
+                        if ENABLE_CLEAN:
+                            if political:
+                                logger.info(f"Cleaning political career for {name}...")
+                                full_prompt = clean_prompt_base + political
+                                political = get_gemini_response(full_prompt)
+
+                            if private:
+                                logger.info(f"Cleaning private career for {name}...")
+                                full_prompt = clean_prompt_base + private
+                                private = get_gemini_response(full_prompt)
+                            
                         political_positions[i] = political
                         private_positions[i] = private
                         processed_count += 1
