@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 venv/
 .env
+api_keys/
 pdf_data/
 result/
 txt_data/
