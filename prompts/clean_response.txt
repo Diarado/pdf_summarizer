@@ -1,1 +1,5 @@
-You are an expert in cleaning text. remove all year information in the following text. Please just return the clean text itself, no other words. 
+You are an expert in cleaning text. 
+remove all irrelevant or unreasonable symbol, signs and punctuations
+remove all year information in the following text. 
+The final response needs to be grammar error free. 
+Please just return the clean text itself, no other words. 
