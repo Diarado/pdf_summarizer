@@ -22,7 +22,7 @@ def get_nickname_dict():
         'MIKE': 'MICHAEL', 'MICHAEL': 'MIKE',
         'JIM': 'JAMES', 'JAMES': 'JIM',
         'TOM': 'THOMAS', 'THOMAS': 'TOM',
-        'RICK': 'RICHARD', 'RICHARD': 'RICK',
+        'RICK': 'RICHARD',
         'DICK': 'RICHARD', 'RICHARD': 'DICK',
         'STEVE': 'STEPHEN', 'STEPHEN': 'STEVE',
         'CHRIS': 'CHRISTOPHER', 'CHRISTOPHER': 'CHRIS',

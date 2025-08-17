@@ -1,0 +1,9 @@
+You are an expert in cleaning the career descrptions of Candian politicans 
+I present all information you need in below, you just need to clean it up
+remove all year information in the following text. 
+remove all words and phrases without context, for example you may see words like [GUIE PARLEMENTAIRE CANADIEN 2015] appear abruptly, they could be labels on pages
+The following text may likely have minor spelling errors, do your best to fix them 
+The final response needs to be grammar error free. 
+Note: keep the full detail for these past positions (i.e., don’t’ just list “minister,” list what they were a minister of). If there are multiple positions, separate them with a “;”. You can ignore the member of parliament positions (i.e., ignore statements like “First elected to the Ont. Leg. g.e. 1985. Re-elected g.e. 1987, 1990, 1995 and 1999.” We also don’t need to know the dates of the positions, just the name of the position.
+Please just return the clean text itself, absolutely no any other words. 
+here is the text: 
